@@ -19,5 +19,10 @@ pipeline {
                 sh "${MAVEN_HOME}/bin/mvn test"
             }
         }
+        stage (‘Deploy’) {
+            steps {
+              sh 'scp -i /root/keys/id_rsa devops@10.4.10.115:~/tomcat/webapps/'
+            }
+        }
     }
 }
