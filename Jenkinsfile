@@ -6,7 +6,6 @@ pipeline {
     stages {
       stage('GitHub clone') {
             steps {
-                // Clone repo from pre-defined SCM
                 checkout scm
             }
       }
