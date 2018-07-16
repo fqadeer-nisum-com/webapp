@@ -1,0 +1,3 @@
+# Run command every 1 minutes
+*/1 * * * * root . /root/container.env; $JAVA_HOME/bin/java -Dapp.home=$HOME/ultipro/ultipro-job.properties -jar  $HOME/ultipro/ultipro-download/fetch.jar >> $HOME/ultipro/ultipro-download/fetch.log 2>&1
+#*/1 * * * * root . /root/container.env; $JAVA_HOME/bin/java -Djavax.net.ssl.trustStore=/home/mysql/ultipro/jre1.8.0_161/lib/security/cacerts -Dapp.home=/home/mysql/ultipro/ultipro-job.properties -jar /opt/ultipro/ultiproadsync/operations.jar >> /opt/ultipro/ultiproadsync/operations.log 2>&1

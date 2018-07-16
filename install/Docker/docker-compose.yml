@@ -1,0 +1,38 @@
+version: "3"
+services:
+
+  ultipro-db:
+    build:
+      context: .
+      dockerfile: mariadb/Dockerfile
+    ports:
+    - "3316:3306"
+    container_name: ultipro-db
+    networks:
+      - ultipronet
+    environment:
+      - MYSQL_DATABASE=ultiprouserinfo
+      - MYSQL_USER=ultipro-app-user
+      - MYSQL_PASSWORD=ultipro-app-user
+      - MYSQL_ROOT_PASSWORD=password
+
+  ulipro-fetch:
+    build:
+      context: .
+      dockerfile: fetch/Dockerfile
+    container_name: ultipro-fetch
+    networks:
+      - ultipronet
+
+  ulipro-operations:
+    build:
+      context: .
+      dockerfile: operations/Dockerfile
+    container_name: ultipro-operations
+    networks:
+      - ultipronet
+
+
+networks:
+  ultipronet:
+    driver: bridge
